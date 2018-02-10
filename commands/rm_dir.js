@@ -29,28 +29,7 @@ function rmDir(path, callback) {
 		return callback(new PlatformUnsupportedError('rmDir'));
 	}
 	
-	
-	
-	const parts = libPath.normalize(path).split(libPath.sep);
-	
-	const count = parts.length - 1;
-	const sequence = Array(count);
-	if (isWindows()) {
-		sequence[count - 1] = parts[0] + parts[1];
-	} else {
-		sequence[count - 1] = libPath.sep + parts[1];
-	}
-	for (let i = 2; i <= count; i++) {
-		sequence[count - i] = parts[i];
-	}
-	
-	ensurePathSequence(sequence, (err) => {
-		if (err) {
-			return callback(err);
-		}
-		
-		return callback(null);
-	});
+	// TODO
 	
 	return promise;
 }

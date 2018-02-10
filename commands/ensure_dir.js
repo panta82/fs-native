@@ -3,7 +3,7 @@ const libPath = require('path');
 
 const CONSTS = require('enumconsts');
 
-const {isWindows} = require('./tools');
+const {isWindows} = require('../lib/tools');
 
 function ensurePathSequence(sequence, callback, pathSoFar = '') {
 	if (!sequence.length) {
@@ -23,7 +23,7 @@ function ensurePathSequence(sequence, callback, pathSoFar = '') {
 }
 
 /**
- * The equivalent of mkdir -p command in *nix.
+ * Ensures the existence of directory. The equivalent of mkdir -p command in *nix.
  * @param {string} path Directory path
  * @param [callback] Optional callback
  * @return {Promise<void>}

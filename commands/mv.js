@@ -1,9 +1,9 @@
 const libFs = require('fs');
 const libPath = require('path');
 
-const Scheduler = require('./Scheduler');
-const Finder = require('./Finder');
-const Mapper = require('./Mapper');
+const Scheduler = require('../lib/Scheduler');
+const Finder = require('../lib/Finder');
+const Mapper = require('../lib/Mapper');
 
 function mvMapper(from, to, callback) {
 	return libFs.rename(from, to, callback);
@@ -69,7 +69,7 @@ function MvOptions(source) {
 }
 
 /**
- * The equivalent of mv command in *nix.
+ * Moves single file or a directory tree. The equivalent of mv command in *nix.
  * @param {string} from Source directory
  * @param {string|function} to Target directory or mapper function. If mapper returns falsy, we will skip that file
  * @param {MvOptions} [opts] See MvOptions for details
@@ -78,7 +78,7 @@ function MvOptions(source) {
  */
 function mv(from, to, opts, callback) {
 	let promise;
-	if (!(opts instanceof 'object')) {
+	if (!(typeof opts === 'object')) {
 		callback = opts;
 		opts = null;
 	}
@@ -106,8 +106,9 @@ function mv(from, to, opts, callback) {
 	}
 
 	if (typeof to !== 'function') {
+		const toValue = to;
 		to = fromPath => {
-			const toPath =  libPath.resolve(to, libPath.relative(from, fromPath));
+			const toPath = libPath.resolve(toValue, libPath.relative(from, fromPath));
 			return toPath;
 		};
 	}

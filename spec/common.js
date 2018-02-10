@@ -44,7 +44,7 @@ class SchedulerMock {
 }
 
 module.exports = {
-	ROOT_PATH,
+	ROOT: ROOT_PATH,
 	SIMPLE: libPath.resolve(ROOT_PATH, 'simple'),
 	TREE: libPath.resolve(ROOT_PATH, 'tree'),
 	

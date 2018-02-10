@@ -1,6 +1,8 @@
-const mv = require('./lib/mv');
+const mv = require('./commands/mv');
+const ensureDir = require('./commands/ensure_dir');
 
 module.exports = {
 	mv,
-	move: mv
+	move: mv,
+	ensureDir
 };

@@ -5,7 +5,7 @@ const libFs = require('fs');
 const res = libPath.resolve;
 
 const Mapper = require('../lib/Mapper');
-const {ROOT_PATH, SIMPLE, TREE, prepareRoot, SchedulerMock} = require('./common');
+const {ROOT, SIMPLE, TREE, prepareRoot, SchedulerMock} = require('./common');
 
 beforeEach(prepareRoot);
 
@@ -20,7 +20,7 @@ describe('Mapper', () => {
 		};
 		
 		const mapper = new Mapper(mapFn, scheduler);
-		const destPath = res(ROOT_PATH, './dest/a/b/c');
+		const destPath = res(ROOT, './dest/a/b/c');
 		
 		const input = [
 			[res(SIMPLE, './file1.dat'), res(destPath, './file1.dat')],

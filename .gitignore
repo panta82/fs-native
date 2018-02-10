@@ -6,7 +6,7 @@
 .idea/**/tasks.xml
 .idea/dictionaries
 
-# Sensitive or high-churn files:
+# Sensitive or high-churn master:
 .idea/**/dataSources/
 .idea/**/dataSources.ids
 .idea/**/dataSources.local.xml
@@ -50,3 +50,4 @@ fabric.properties
 
 package-lock.json
 node_modules
+spec/root

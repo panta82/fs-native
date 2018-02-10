@@ -1,4 +1,4 @@
-# mv-native
+# fs-native
 
-Native mv for node.js.
+Native mv and copy for node.js.
 
